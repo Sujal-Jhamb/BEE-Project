@@ -5,13 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>La Belle Restaurant</title>
     <link rel="stylesheet" href="styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Cormorant+Garamond:wght@400;500;600&display=swap" rel="stylesheet">
 </head>
 <body>
     <header class="hero">
         <nav id="mainNav">
             <div class="logo">La Belle</div>
-            <button class="reserve-btn" onclick="scrollToReservation()">Make Reservation</button>
+            <div class="nav-links">
+                <a href="#menu">Menu</a>
+                <a href="#about">About</a>
+                <a href="#gallery">Gallery</a>
+                <button class="reserve-btn" onclick="scrollToReservation()">Make Reservation</button>
+            </div>
         </nav>
         <div class="hero-content">
             <h1>Experience Fine Dining</h1>
@@ -20,41 +25,103 @@
         </div>
     </header>
 
+    <section id="about" class="about-section">
+        <div class="about-content">
+            <h2>Our Story</h2>
+            <p>La Belle brings the essence of French cuisine to your table. With our passionate chefs and carefully selected ingredients, we create unforgettable dining experiences.</p>
+            <div class="features">
+                <div class="feature">
+                    <div class="feature-icon">🌟</div>
+                    <h3>Fine Dining</h3>
+                    <p>Experience culinary excellence</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">🍷</div>
+                    <h3>Wine Selection</h3>
+                    <p>Curated wine collection</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">👨‍🍳</div>
+                    <h3>Expert Chefs</h3>
+                    <p>Michelin-starred cuisine</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="menu" class="menu-section">
+        <h2>Our Signature Menu</h2>
+        <div class="menu-grid">
+            <div class="menu-item">
+                <img src="https://images.unsplash.com/photo-1476224203421-9ac39bcb3327?w=800" alt="Menu item">
+                <h3>Coq au Vin</h3>
+                <p>Traditional French chicken braised with wine, mushrooms, and pearl onions</p>
+            </div>
+            <div class="menu-item">
+                <img src="https://images.unsplash.com/photo-1473093226795-af9932fe5856?w=800" alt="Menu item">
+                <h3>Beef Bourguignon</h3>
+                <p>Slow-cooked beef in red wine with root vegetables</p>
+            </div>
+            <div class="menu-item">
+                <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=800" alt="Menu item">
+                <h3>Ratatouille</h3>
+                <p>Classic Provençal stewed vegetables</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="gallery" class="gallery-section">
+        <h2>Gallery</h2>
+        <div class="gallery-grid">
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1550966871-3ed3cdb5ed0c?w=800" alt="Restaurant interior">
+            </div>
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=800" alt="Fine dining">
+            </div>
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1559339352-11d035aa65de?w=800" alt="Wine cellar">
+            </div>
+        </div>
+    </section>
+
     <section id="reservation" class="reservation-section">
         <div class="form-container">
             <h2>Table Reservation</h2>
             <form id="reservationForm" onsubmit="handleSubmit(event)">
-                <div class="form-group">
-                    <label for="name">Full Name</label>
-                    <input type="text" id="name" name="name" required>
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label for="name">Full Name</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="phone">Phone Number</label>
+                        <input type="tel" id="phone" name="phone" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="date">Date</label>
+                        <input type="date" id="date" name="date" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="time">Time</label>
+                        <input type="time" id="time" name="time" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="guests">Number of Guests</label>
+                        <input type="number" id="guests" name="guests" min="1" max="10" required>
+                    </div>
                 </div>
 
-                <div class="form-group">
-                    <label for="email">Email</label>
-                    <input type="email" id="email" name="email" required>
-                </div>
-
-                <div class="form-group">
-                    <label for="phone">Phone Number</label>
-                    <input type="tel" id="phone" name="phone" required>
-                </div>
-
-                <div class="form-group">
-                    <label for="date">Date</label>
-                    <input type="date" id="date" name="date" required>
-                </div>
-
-                <div class="form-group">
-                    <label for="time">Time</label>
-                    <input type="time" id="time" name="time" required>
-                </div>
-
-                <div class="form-group">
-                    <label for="guests">Number of Guests</label>
-                    <input type="number" id="guests" name="guests" min="1" max="10" required>
-                </div>
-
-                <div class="form-group">
+                <div class="form-group full-width">
                     <label for="special-requests">Special Requests</label>
                     <textarea id="special-requests" name="specialRequests"></textarea>
                 </div>
@@ -63,6 +130,29 @@
             </form>
         </div>
     </section>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Location</h3>
+                <p>123 Gourmet Street</p>
+                <p>Paris, France</p>
+            </div>
+            <div class="footer-section">
+                <h3>Hours</h3>
+                <p>Mon-Sat: 6:00 PM - 11:00 PM</p>
+                <p>Sunday: 5:00 PM - 10:00 PM</p>
+            </div>
+            <div class="footer-section">
+                <h3>Contact</h3>
+                <p>Phone: +33 1 23 45 67 89</p>
+                <p>Email: info@labelle.com</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 La Belle Restaurant. All rights reserved.</p>
+        </div>
+    </footer>
 
     <div id="successMessage" class="success-message">
         Reservation submitted successfully!
