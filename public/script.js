@@ -1,4 +1,3 @@
-// Navbar scroll effect
 window.addEventListener('scroll', () => {
     const nav = document.getElementById('mainNav');
     if (window.scrollY > 100) {
@@ -8,12 +7,10 @@ window.addEventListener('scroll', () => {
     }
 });
 
-// Scroll to reservation section with smooth animation
 function scrollToReservation() {
     document.getElementById('reservation').scrollIntoView({ behavior: 'smooth' });
 }
 
-// Form visibility animation on scroll
 const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
@@ -32,27 +29,23 @@ function validateForm() {
     const time = document.getElementById('time').value;
     const guests = document.getElementById('guests').value;
 
-    // Basic validation
     if (!name || !email || !phone || !date || !time || !guests) {
         showError('Please fill in all required fields');
         return false;
     }
 
-    // Email validation
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(email)) {
         showError('Please enter a valid email address');
         return false;
     }
 
-    // Phone validation
     const phoneRegex = /^\d{10}$/;
     if (!phoneRegex.test(phone.replace(/\D/g, ''))) {
         showError('Please enter a valid 10-digit phone number');
         return false;
     }
 
-    // Date validation
     const selectedDate = new Date(date);
     const today = new Date();
     today.setHours(0, 0, 0, 0);
@@ -139,12 +132,10 @@ async function handleSubmit(event) {
     }
 }
 
-// Set minimum date for date input
 const dateInput = document.getElementById('date');
 const today = new Date().toISOString().split('T')[0];
 dateInput.min = today;
 
-// Initialize form animations
 document.addEventListener('DOMContentLoaded', () => {
     const formContainer = document.querySelector('.form-container');
     if (formContainer) {

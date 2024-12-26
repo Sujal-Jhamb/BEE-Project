@@ -17,7 +17,6 @@ async function connectDB() {
       await client.connect();
       console.log('Connected to MongoDB');
       
-      // Test the connection
       await client.db('restaurant').command({ ping: 1 });
       console.log('Database connection test successful');
       return client;
@@ -28,7 +27,6 @@ async function connectDB() {
         console.error('MongoDB connection error:', error);
         process.exit(1);
       }
-      // Wait 2 seconds before retrying
       await new Promise(resolve => setTimeout(resolve, 2000));
     }
   }
